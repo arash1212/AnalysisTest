@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Embeddable
 public class CustomerOrderPK implements Serializable {
     @Column(name = "CUSTOMER_ID")
-    private Long customerId;
+    private Integer customerId;
     @Column(name = "PRODUCT_ID")
-    private Long productId;
+    private Integer productId;
 }

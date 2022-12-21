@@ -16,15 +16,18 @@ import javax.persistence.*;
 public class OrderEntity {
 
     @EmbeddedId
-    private CustomerOrderPK id;
+    private CustomerOrderPK id = new CustomerOrderPK();
+
     @ManyToOne
     @MapsId("customerId")
     @JoinColumn(name = "CUSTOMER_ID_FK", nullable = false)
     private CustomerEntity customer;
+
     @ManyToOne
     @MapsId("productId")
     @JoinColumn(name = "PRODUCT_ID_FK", nullable = false)
     private ProductEntity product;
+
     @Column(name = "COUNT", nullable = false)
     private int count;
 }

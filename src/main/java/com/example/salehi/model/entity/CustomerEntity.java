@@ -1,5 +1,8 @@
 package com.example.salehi.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +30,8 @@ public class CustomerEntity {
     private String firstName;
     @Column(name = "LAST_NAME", length = 100)
     private String lastName;
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<OrderEntity> orders;
+
+
 }
